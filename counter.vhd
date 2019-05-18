@@ -48,6 +48,8 @@ BEGIN
 	IF (rst='1') THEN
 		IF (count_ini="UUUUUUUU") THEN
 			q_s <= "00000000";
+		ELSIF(count_ini="XXXXXXXX") THEN
+			q_s <= "00000000";
 		ELSIF (count_ini="ZZZZZZZZ") THEN
 			q_s <= "00000000";
 		ELSE
