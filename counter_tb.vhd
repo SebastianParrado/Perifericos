@@ -30,10 +30,13 @@ BEGIN
 	-- TEST VECTORS
 	count_ini_tb <= "XXXXXXXX" AFTER 200 ns,
 			"ZZZZZZZZ" AFTER 11 us,
-			"00010010"	AFTER 22 us;
+			"UUUUUUUU" AFTER 22 us,
+			"00010010"	AFTER 33 us;
+						 
 	count_fin_tb <= "10101100" AFTER 200 ns,
 			"00110100" AFTER 11 us,
-			"ZZZZZZZZ" AFTER 22 us;
+			"ZZZZZZZZ" AFTER 22 us,
+			"UUUUUUUU" AFTER 33 us;
 signal_generation: PROCESS
 BEGIN
 	-- TEST VECTOR 1
@@ -55,5 +58,15 @@ BEGIN
 	ena_tb <= '1';
 	rst_tb <= '0';
 	WAIT FOR 11 us;
+	
+	-- TEST VECTOR 5
+	ena_tb <= '0';
+	rst_tb <= '1';
+	WAIT FOR 200 ns;
+
+	-- TEST VECTOR 6
+	ena_tb <= '1';
+	rst_tb <= '0';
+	WAIT FOR 11 us;
 END PROCESS;
-END ARCHITECTURE testbecnh;
+END ARCHITECTURE testbench;
